@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/auto-aggeregator-web-app/static/css/main.88f68e78.css",
+    "main.js": "/auto-aggeregator-web-app/static/js/main.89d17b7b.js",
+    "static/js/787.951da188.chunk.js": "/auto-aggeregator-web-app/static/js/787.951da188.chunk.js",
+    "index.html": "/auto-aggeregator-web-app/index.html",
+    "main.88f68e78.css.map": "/auto-aggeregator-web-app/static/css/main.88f68e78.css.map",
+    "main.89d17b7b.js.map": "/auto-aggeregator-web-app/static/js/main.89d17b7b.js.map",
+    "787.951da188.chunk.js.map": "/auto-aggeregator-web-app/static/js/787.951da188.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.88f68e78.css",
+    "static/js/main.89d17b7b.js"
+  ]
+}
