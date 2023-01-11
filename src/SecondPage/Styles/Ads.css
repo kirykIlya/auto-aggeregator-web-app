@@ -1,0 +1,101 @@
+.ListOfAds{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.ListOfAds .NoAds{
+    width: 95%;
+    min-height: 400px;
+    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.516);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+.ListOfAds .Ads{
+    width: 95%;
+    min-height: 500px;
+    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.516);
+    margin: 10px 0;
+    padding: 5px 0 0 15px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.NoAds .BackButton{
+    background-color: rgba(0, 38, 255, 0.836);
+    color: aliceblue;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 7px 3px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Ads .header{
+    color: rgba(0, 0, 255, 0.701);
+    font-size: large;
+    font-weight: 500;
+}
+.header span{
+    background-color: lightgreen;
+    border-radius: 2px;
+    padding: 5px;
+}
+.Ads .IMG{
+    width: 95%;
+    height: 270px;
+}
+.Ads .DateAds{
+    font-size: x-small;
+}
+.Ads .body{
+    font-size: small;
+    font-weight: 300;
+    margin-top: 10px;
+}
+.body p{
+    margin: 0;
+    padding: 0;
+}
+.body span{
+    font-size: small;
+    font-weight:500;
+    margin: 0 5px ;
+}
+.Ads .country{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+@media screen and (max-width: 1000px) {
+    .ListOfAds{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .Ads .IMG{
+        height: 200px;
+    }
+}
+@media screen and (max-width: 380PX) {
+    .Ads .IMG{
+        height: 150px;
+    }
+    .ListOfAds .Ads{
+        min-height: 350px;
+    }
+}
