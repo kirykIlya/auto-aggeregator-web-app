@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/auto-aggeregator-web-app/static/css/main.88f68e78.css",
-    "main.js": "/auto-aggeregator-web-app/static/js/main.18588306.js",
-    "static/js/787.df913b21.chunk.js": "/auto-aggeregator-web-app/static/js/787.df913b21.chunk.js",
+    "main.js": "/auto-aggeregator-web-app/static/js/main.73ddda35.js",
+    "static/js/787.951da188.chunk.js": "/auto-aggeregator-web-app/static/js/787.951da188.chunk.js",
     "index.html": "/auto-aggeregator-web-app/index.html",
     "main.88f68e78.css.map": "/auto-aggeregator-web-app/static/css/main.88f68e78.css.map",
-    "main.18588306.js.map": "/auto-aggeregator-web-app/static/js/main.18588306.js.map",
-    "787.df913b21.chunk.js.map": "/auto-aggeregator-web-app/static/js/787.df913b21.chunk.js.map"
+    "main.73ddda35.js.map": "/auto-aggeregator-web-app/static/js/main.73ddda35.js.map",
+    "787.951da188.chunk.js.map": "/auto-aggeregator-web-app/static/js/787.951da188.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.88f68e78.css",
-    "static/js/main.18588306.js"
+    "static/js/main.73ddda35.js"
   ]
 }
