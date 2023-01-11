@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/auto-aggeregator-web-app/static/css/main.88f68e78.css",
-    "main.js": "/auto-aggeregator-web-app/static/js/main.73ddda35.js",
+    "main.css": "/auto-aggeregator-web-app/static/css/main.c750d2df.css",
+    "main.js": "/auto-aggeregator-web-app/static/js/main.332b8f9f.js",
     "static/js/787.951da188.chunk.js": "/auto-aggeregator-web-app/static/js/787.951da188.chunk.js",
     "index.html": "/auto-aggeregator-web-app/index.html",
-    "main.88f68e78.css.map": "/auto-aggeregator-web-app/static/css/main.88f68e78.css.map",
-    "main.73ddda35.js.map": "/auto-aggeregator-web-app/static/js/main.73ddda35.js.map",
+    "main.c750d2df.css.map": "/auto-aggeregator-web-app/static/css/main.c750d2df.css.map",
+    "main.332b8f9f.js.map": "/auto-aggeregator-web-app/static/js/main.332b8f9f.js.map",
     "787.951da188.chunk.js.map": "/auto-aggeregator-web-app/static/js/787.951da188.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.88f68e78.css",
-    "static/js/main.73ddda35.js"
+    "static/css/main.c750d2df.css",
+    "static/js/main.332b8f9f.js"
   ]
 }
