@@ -22,8 +22,8 @@ import { NavLink } from "react-router-dom";
 export default function MainField({ FetchAds }) {
   // All states from inputs and forms
   const [regions, setRegions] = useState([]);
-  const [make, setMake] = useState("");
-  const [model, setModel] = useState(false);
+  const [make, setMake] = useState("Не_важно");
+  const [model, setModel] = useState("Не_важно");
   const [yearBefore, setYearBefore] = useState(Number);
   const [yearAfter, setYearAfter] = useState(Number);
   const [currency, setCurrency] = useState("USD");
@@ -32,7 +32,7 @@ export default function MainField({ FetchAds }) {
   const [engineTypes, setEngineTypes] = useState([]);
   const [engineVolumeBefore, setEngineVolumeBefore] = useState(Number);
   const [engineVolumeAfter, setEngineVolumeAfter] = useState(Number);
-  const [transmissionType, setTransmissionType] = useState("Не важно");
+  const [transmissionType, setTransmissionType] = useState("Не_важно");
   const [bodyType, setBodyType] = useState([]);
   const [typeOfDrive, setTypeOfDrive] = useState([]);
   const [mileage, setMileage] = useState(Number);
@@ -54,27 +54,33 @@ export default function MainField({ FetchAds }) {
     let response = await axios.get(
       "https://wa-auto-aggregator-api-dev.azurewebsites.net/api/makes"
     );
-    let arr = [{ id: -1, viewName: "Не важно" }];
+    let arr = [{ id: "Не_важно", viewName: "Не важно" }];
     setAUTOMARKS(arr.concat(response.data.makes));
   };
 
   const FetchModels = async (mark) => {
-    if (mark === "Не важно" || mark === "") {
+    if (mark === "Не важно" || mark === "" || mark === null) {
       setMODELS([]);
-      RefForModels.current.resetSelectedValues();
+      RefForModels.current.clearValue();
+      setIsDisabled(true);
     } else {
       let queryMark = mark.split(" ").join("_");
       let response = await axios.get(
         `https://wa-auto-aggregator-api-dev.azurewebsites.net/api/makes/${queryMark}/models`
       );
-      let arr = [{ id: -1, viewName: "Не важно" }];
+      let arr = [{ id: "Не_важно", viewName: "Не важно" }];
       setMODELS(arr.concat(response.data.models));
+      setIsDisabled(false);
     }
   };
 
   useEffect(() => {
     FetchMarks();
   }, []);
+
+  function getMetrickId(data, dataValue) {
+    return data.find((a) => a.label === dataValue).value;
+  }
 
   const LOG = () => {
     console.log(regions);
@@ -94,19 +100,17 @@ export default function MainField({ FetchAds }) {
     console.log(mileage);
   };
 
-  const getValues = (objectList) => {
-    return objectList.map((a) => a.value);
-  };
-
   const getvaluesFromAPI = (objectList) => {
-    return objectList.map((a) => a.viewName);
+    return objectList.map((a) => {
+      return { value: a.id, label: a.viewName };
+    });
   };
 
   return (
     <div className="containerForMainField">
       <h1>AutoAggregator</h1>
       <Selection
-        choiceValues={getValues(REGION)}
+        choiceValues={REGION}
         isMultySelector={true}
         SelectValue={regions}
         setValue={setRegions}
@@ -115,6 +119,7 @@ export default function MainField({ FetchAds }) {
       />
       <Selection
         choiceValues={getvaluesFromAPI(AUTOMARKS)}
+        value={make}
         FetchModels={FetchModels}
         setValue={setMake}
         NameOfSelectValue={"Марка"}
@@ -123,6 +128,7 @@ export default function MainField({ FetchAds }) {
       />
       <Selection
         choiceValues={getvaluesFromAPI(MODELS)}
+        value={model}
         setValue={setModel}
         NameOfSelectValue={"Модель"}
         placeholder={"Выберите модель"}
@@ -132,8 +138,8 @@ export default function MainField({ FetchAds }) {
         min={1970}
         max={new Date().getFullYear()}
         isSelect={true}
-        SelectValueBefore={getValues(YEARSBEFORE)}
-        SelectValueAfter={getValues(YEARSAFTER)}
+        SelectValueBefore={YEARSBEFORE}
+        SelectValueAfter={YEARSAFTER}
         setValueBefore={setYearBefore}
         setValueAfter={setYearAfter}
         NameOfSelectValue={"Год"}
@@ -153,7 +159,7 @@ export default function MainField({ FetchAds }) {
         NameOfSelectValue={"Стоимость"}
       />
       <Selection
-        choiceValues={getValues(ENGINETYPE)}
+        choiceValues={ENGINETYPE}
         isMultySelector={true}
         setValue={setEngineTypes}
         NameOfSelectValue={"Тип двигателя"}
@@ -163,8 +169,8 @@ export default function MainField({ FetchAds }) {
         min={"1.0"}
         max={"9.0"}
         isSelect={true}
-        SelectValueBefore={getValues(TRANSMISSION_FROM)}
-        SelectValueAfter={getValues(TRANSMISSION_TO)}
+        SelectValueBefore={TRANSMISSION_FROM}
+        SelectValueAfter={TRANSMISSION_TO}
         setValueBefore={setEngineVolumeBefore}
         setValueAfter={setEngineVolumeAfter}
         NameOfSelectValue={"Объем двигателя, л"}
@@ -177,52 +183,57 @@ export default function MainField({ FetchAds }) {
         NameOfSelectValue={"Коробка передач"}
       />
       <Selection
-        choiceValues={getValues(BODYTYPE)}
+        choiceValues={BODYTYPE}
         isMultySelector={true}
         setValue={setBodyType}
         NameOfSelectValue={"Тип кузова"}
         placeholder={"Выберите тип кузова"}
       />
       <Selection
-        choiceValues={getValues(TYPEOFDRIVE)}
+        choiceValues={TYPEOFDRIVE}
         isMultySelector={true}
         setValue={setTypeOfDrive}
         NameOfSelectValue={"Тип привода"}
         placeholder={"Выберите тип привода"}
       />
       <Selection
-        choiceValues={getValues(MILEAGE)}
+        choiceValues={MILEAGE}
+        value={mileage}
         setValue={setMileage}
         NameOfSelectValue={"Пробег до, км"}
         placeholder={"Выберите пробег"}
       />
-      <button disabled={isDisabled} className="adSearching">
-        <NavLink
-          to="/Ads"
-          className="NavLink"
-          onClick={() =>
-            FetchAds(
-              make,
-              currency,
-              regions,
-              model,
-              yearBefore,
-              yearAfter,
-              priceBefore,
-              priceAfter,
-              engineTypes,
-              engineVolumeBefore,
-              engineVolumeAfter,
-              transmissionType,
-              bodyType,
-              typeOfDrive,
-              mileage
-            )
+      <NavLink
+        to="/Ads"
+        className={
+          isDisabled ? "Disabled adSearching NavLink" : "adSearching NavLink"
+        }
+        onClick={(e) => {
+          if (isDisabled) {
+            e.preventDefault();
           }
-        >
-          ПОКАЗАТЬ ОБЪЯВЛЕНИЯ
-        </NavLink>
-      </button>
+          FetchAds(
+            make,
+            currency,
+            regions,
+            model,
+            yearBefore,
+            yearAfter,
+            priceBefore,
+            priceAfter,
+            engineTypes,
+            engineVolumeBefore,
+            engineVolumeAfter,
+            transmissionType,
+            bodyType,
+            typeOfDrive,
+            mileage
+          );
+          LOG();
+        }}
+      >
+        ПОКАЗАТЬ ОБЪЯВЛЕНИЯ
+      </NavLink>
       <h5 className="cleanBtn" onClick={cleaning}>
         &#128465;&#65039; Сбросить всё
       </h5>

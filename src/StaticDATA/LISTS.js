@@ -2,141 +2,141 @@ import axios from "axios";
 
 export const REGION = [
   {
-    id: 1,
-    value: "Беларусь",
+    value: 1,
+    label: "Беларусь",
   },
   {
-    id: 2,
-    value: "Москва и Московская область",
+    value: 2,
+    label: "Москва и Московская область",
   },
   {
-    id: 3,
-    value: "Санкт-Петербург и Ленинградская область",
+    value: 3,
+    label: "Санкт-Петербург и Ленинградская область",
   },
   {
-    id: 4,
-    value: "Краснодар и Краснодарский Край",
+    value: 4,
+    label: "Краснодар и Краснодарский Край",
   },
   {
-    id: 5,
-    value: "Екатеринбург и Свердловская Область",
+    value: 5,
+    label: "Екатеринбург и Свердловская Область",
   },
   {
-    id: 6,
-    value: "Ростов-на-Дону и Ростовская область",
+    value: 6,
+    label: "Ростов-на-Дону и Ростовская область",
   },
 ];
 
 export const CHOICECURRENCY = [
   {
-    id: 0,
-    value: "USD",
+    value: 0,
+    label: "USD",
   },
   {
-    id: 1,
-    value: "RUB",
+    value: 1,
+    label: "RUB",
   },
 ];
 export const CHOICETRANSMISSION = [
   {
-    id: 0,
-    value: "Не важно",
+    value: 0,
+    label: "Не важно",
   },
   {
-    id: 2,
-    value: "Автомат",
+    value: 2,
+    label: "Автомат",
   },
   {
-    id: 1,
-    value: "Механика",
+    value: 1,
+    label: "Механика",
   },
 ];
 export const ENGINETYPE = [
   {
-    id: 1,
-    value: "Бензин",
+    value: 1,
+    label: "Бензин",
   },
   {
-    id: 2,
-    value: "Дизель",
+    value: 2,
+    label: "Дизель",
   },
   {
-    id: 3,
-    value: "Газ",
+    value: 3,
+    label: "Газ",
   },
   {
-    id: 4,
-    value: "Бензин(пропан-бутан)",
+    value: 4,
+    label: "Бензин(пропан-бутан)",
   },
   {
-    id: 5,
-    value: "Дизель(гибрид)",
+    value: 5,
+    label: "Дизель(гибрид)",
   },
   {
-    id: 6,
-    value: "Электродвигатель",
+    value: 6,
+    label: "Электродвигатель",
   },
 ];
 
 export const BODYTYPE = [
   {
-    id: 1,
-    value: "Седан",
+    value: 1,
+    label: "Седан",
   },
   {
-    id: 4,
-    value: "Хетчбэк",
+    value: 4,
+    label: "Хетчбэк",
   },
   {
-    id: 3,
-    value: "Универсал",
+    value: 3,
+    label: "Универсал",
   },
   {
-    id: 5,
-    value: "Кабриолет",
+    value: 5,
+    label: "Кабриолет",
   },
   {
-    id: 2,
-    value: "Купе",
+    value: 2,
+    label: "Купе",
   },
   {
-    id: 10,
-    value: "Внедорожник",
+    value: 10,
+    label: "Внедорожник",
   },
   {
-    id: 11,
-    value: "Фургон",
+    value: 11,
+    label: "Фургон",
   },
   {
-    id: 6,
-    value: "Минивен",
+    value: 6,
+    label: "Минивен",
   },
   {
-    id: 7,
-    value: "Пикап",
+    value: 7,
+    label: "Пикап",
   },
   {
-    id: 12,
-    value: "Микроавтобус",
+    value: 12,
+    label: "Микроавтобус",
   },
   {
-    id: 11,
-    value: "Лифтбек",
+    value: 11,
+    label: "Лифтбек",
   },
 ];
 
 export const TYPEOFDRIVE = [
   {
-    id: 1,
-    value: "Передний",
+    value: 1,
+    label: "Передний",
   },
   {
-    id: 2,
-    value: "Задний",
+    value: 2,
+    label: "Задний",
   },
   {
-    id: 3,
-    value: "Полный",
+    value: 3,
+    label: "Полный",
   },
 ];
 
@@ -144,58 +144,58 @@ export const MILEAGE = setMileage();
 function setMileage() {
   let mileage = [];
   for (let i = 10; i <= 300; i += 10) {
-    mileage.push({ id: i, value: `до ${i} тыс.` });
+    mileage.push({ value: i, label: `до ${i} тыс.` });
   }
   for (let i = 350; i <= 500; i += 50) {
-    mileage.push({ id: i, value: `до ${i} тыс.` });
+    mileage.push({ value: i, label: `до ${i} тыс.` });
   }
   return mileage;
 }
 
 export const SortingOnDate = [
   {
-    id: -1,
-    value: "Вчера",
+    value: -1,
+    label: "Вчера",
   },
   {
-    id: 0,
-    value: "Сегодня",
+    value: 0,
+    label: "Сегодня",
   },
   {
-    id: 1,
-    value: "Завтра",
+    value: 1,
+    label: "Завтра",
   },
 ];
 
 export const SortingOnTime = [
   {
-    id: -1,
-    value: "За неделю",
+    value: -1,
+    label: "За неделю",
   },
   {
-    id: 0,
-    value: "За месяц",
+    value: 0,
+    label: "За месяц",
   },
   {
-    id: 1,
-    value: "За полгода",
+    value: 1,
+    label: "За полгода",
   },
   {
-    id: 2,
-    value: "За год",
+    value: 2,
+    label: "За год",
   },
 ];
 
 export let YEARSBEFORE = [];
 export let YEARSAFTER = [];
 for (let i = 1970; i < new Date().getFullYear(); i++) {
-  YEARSBEFORE.push({ id: Math.random().toFixed(4), value: i });
-  YEARSAFTER.push({ id: Math.random().toFixed(4), value: i });
+  YEARSBEFORE.push({ value: Math.random().toFixed(4), label: i });
+  YEARSAFTER.push({ value: Math.random().toFixed(4), label: i });
 }
 
 export let TRANSMISSION_FROM = [];
 export let TRANSMISSION_TO = [];
 for (let i = 1; i < 9; i += 0.1) {
-  TRANSMISSION_FROM.push({ id: Math.random().toFixed(4), value: i.toFixed(1) });
-  TRANSMISSION_TO.push({ id: Math.random().toFixed(4), value: i.toFixed(1) });
+  TRANSMISSION_FROM.push({ value: Math.random().toFixed(4), label: i.toFixed(1) });
+  TRANSMISSION_TO.push({ value: Math.random().toFixed(4), label: i.toFixed(1) });
 }

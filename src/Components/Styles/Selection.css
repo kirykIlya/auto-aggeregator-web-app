@@ -1,9 +1,6 @@
 .containerForSelect{
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 30%;
+
 }
 .containerForSelect p{
     width: 50%;
@@ -12,30 +9,27 @@
     padding: 0;
     margin: 30px 0 5px 0;
 }
-.containerForSelect div{
-    width: 50%;
+.option{
+    background-color: white;
 }
-.Multy{
-    width: 100% !important;
+.css-1u9des2-indicatorSeparator{
+    display: none !important;
 }
-.Multy .searchWrapper{
-    width: 100% !important;
+.css-1u9des2-indicatorSeparator{
+    display: none !important;
 }
-.Multy .optionListContainer{
-    width: 100% !important;
+.active{
+    border: none;
+    background: transparent;
+    display: block;
+    font-weight: bold;
+}
+.false{
+    display: none;
 }
 
 @media screen and (max-width: 850px) {
     .containerForSelect{
-        width: 100%;
-    }
-    .containerForSelect p{
         width: 80%;
-    }
-    .containerForSelect div{
-        width: 80%;
-    }
-    .Multy .optionListContainer{
-        width: 100% !important;
     }
 }

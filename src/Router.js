@@ -23,7 +23,7 @@ export default function Router() {
   const [Data, setData] = useState([]);
 
   function getMetrickId(data, dataValue) {
-    return data.find((a) => a.value === dataValue).id;
+    return data.find((a) => a.label === dataValue).value;
   }
 
   const FetchAds = async (
@@ -46,10 +46,10 @@ export default function Router() {
     let query = `https://wa-auto-aggregator-api-dev.azurewebsites.net/api/cars?make=${mark}&currency=${currency}`;
     if (regions.length != 0) {
       regions.forEach((region) => {
-        query += `&regionId=${getMetrickId(REGION, region)}`;
+        query += `&regionId=${region.value}`;
       });
     }
-    if (model != "" && model != "Не важно") {
+    if (model != "" && model != "Не_важно") {
       query += `&model=${model}`;
     }
     if (yearFrom != 0 || yearTo != 0) {
@@ -86,11 +86,11 @@ export default function Router() {
     }
     if (engineTypes.length != 0) {
       engineTypes.forEach((type) => {
-        query += `&engineType=${getMetrickId(ENGINETYPE, type)}`;
+        query += `&engineType=${type.value}`;
       });
     }
     //engineCapacityFrom/To
-    if (transmissionType != "Не важно") {
+    if (transmissionType != "Не_важно") {
       query += `&transmission=${getMetrickId(
         CHOICETRANSMISSION,
         transmissionType
@@ -98,12 +98,12 @@ export default function Router() {
     }
     if (bodyType.length != 0) {
       bodyType.forEach((type) => {
-        query += `&bodyType=${getMetrickId(BODYTYPE, type)}`;
+        query += `&bodyType=${type.value}`;
       });
     }
     if (typeOfDrive.length != 0) {
       typeOfDrive.forEach((type) => {
-        query += `&typeofDrive=${getMetrickId(TYPEOFDRIVE, type)}`;
+        query += `&typeofDrive=${type.value}`;
       });
     }
     if (mileage != 0) {

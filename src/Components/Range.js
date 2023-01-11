@@ -1,5 +1,6 @@
 import Multiselect from 'multiselect-react-dropdown'
 import React, {useState} from 'react'
+import Select from 'react-select'
 import './Styles/Range.css'
 
 export default function Range({ min, max, isSelect, SelectValueBefore, SelectValueAfter, setValueBefore, setValueAfter, NameOfSelectValue, placeholder_from, placeholder_to }) {
@@ -17,8 +18,10 @@ export default function Range({ min, max, isSelect, SelectValueBefore, SelectVal
                     } 
                   </p>
                   <div className='Selection'>
-                    <Multiselect className='Select' singleSelect = {true} placeholder={placeholder_from} isObject={false} options={SelectValueBefore} showCheckbox onSelect={(eventList, event )=>setValueBefore(event)} onRemove={(eventList, event )=>setValueBefore(event)} showArrow />
-                    <Multiselect className='Select' singleSelect = {true} placeholder={placeholder_to} isObject={false} options={SelectValueAfter} showCheckbox onSelect={(eventList, event )=>setValueAfter(event)} onRemove={(eventList, event )=>setValueAfter(event)} showArrow />
+                    {/* <Multiselect className='Select' singleSelect = {true} placeholder={placeholder_from} isObject={false} options={SelectValueBefore} showCheckbox onSelect={(eventList, event )=>setValueBefore(event)} onRemove={(eventList, event )=>setValueBefore(event)} showArrow />
+                    <Multiselect className='Select' singleSelect = {true} placeholder={placeholder_to} isObject={false} options={SelectValueAfter} showCheckbox onSelect={(eventList, event )=>setValueAfter(event)} onRemove={(eventList, event )=>setValueAfter(event)} showArrow /> */}
+                    <Select className='Select' options={SelectValueBefore} placeholder={placeholder_from} onChange={(option)=>setValueBefore(option.label)}/>
+                    <Select className='Select' options={SelectValueAfter} placeholder={placeholder_to} onChange={(option)=>setValueAfter(option.label)}/>
                   </div>
                 </>
                 :<>
@@ -33,7 +36,7 @@ export default function Range({ min, max, isSelect, SelectValueBefore, SelectVal
                       <input type='number' 
                             min={min} max={max}
                             step={ (min === '1.0') ? 0.1 : 1 } 
-                            className={`Select`} 
+                            className='Select'
                             onChange={ e =>{
                                 setValueBefore(e.target.value)
                             }} 
@@ -42,7 +45,7 @@ export default function Range({ min, max, isSelect, SelectValueBefore, SelectVal
                             min={min} max={max} 
                             step={ (min === '1.0') ? 0.1 : 1 } 
                             className={`Select`} 
-                            onChange={ e => setValueAfter(e.target.value) }  
+                            onChange={ (e) => setValueAfter(e.target.value) }  
                             placeholder='до'/>
                   </div>
                 </>

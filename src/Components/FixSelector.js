@@ -13,11 +13,11 @@ export default function FixSelector({ choiceValues, setValue, NameOfSelectValue}
             {
                 choiceValues.map((item)=>(
                     <button onClick={()=>{
-                              setIdBtn(item.id)
-                              setValue(item.value)
+                              setIdBtn(item.value)
+                              setValue(item.label.split(' ').join('_'))
                             }} 
-                            className={ (idBtn === item.id) ? 'true' : '' } 
-                            key={item.id}>{item.value}</button>
+                            className={ (idBtn === item.value) ? 'true' : '' } 
+                            key={item.value}>{item.label}</button>
                 ))
             }
           </div>
