@@ -118,7 +118,7 @@ export default function Router() {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/auto-aggeregator-web-app">
       <Routes>
         <Route
           path="/"

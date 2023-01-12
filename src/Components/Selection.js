@@ -74,8 +74,8 @@ const InputOption = ({
     style,
   };
 
-  const handleChange = event => {
-    return 0
+  const handleChange = (event) => {
+    return 0;
   };
 
   return (
@@ -87,15 +87,23 @@ const InputOption = ({
       getStyles={getStyles}
       innerProps={props}
     >
-      <input type="checkbox" onChange={handleChange} checked={isSelected}/>
+      <input type="checkbox" onChange={handleChange} checked={isSelected} />
       <span>{children}</span>
     </components.Option>
   );
 };
 
-export default function Selection({ choiceValues, isMultySelector, FetchModels, setValue, NameOfSelectValue, placeholder, MakeRef, ModelRef}) {
-  
-  const [Values, setValues] = useState([])
+export default function Selection({
+  choiceValues,
+  isMultySelector,
+  FetchModels,
+  setValue,
+  NameOfSelectValue,
+  placeholder,
+  MakeRef,
+  ModelRef,
+}) {
+  const [Values, setValues] = useState([]);
 
   const [selectedOption, setSelectedOption] = useState([]); //add initial state
 
@@ -171,6 +179,8 @@ export default function Selection({ choiceValues, isMultySelector, FetchModels, 
             defaultValue={[]}
             isMulti
             placeholder={placeholder}
+            blurInputOnSelect={false}
+            isSearchable={false}
             closeMenuOnSelect={false}
             hideSelectedOptions={false}
             onChange={(options) => {
@@ -197,6 +207,7 @@ export default function Selection({ choiceValues, isMultySelector, FetchModels, 
             singleSelect={true}
             placeholder={placeholder}
             isObject={false}
+            isSearchable={false}
             options={choiceValues}
             ref={NameOfSelectValue === "Марка" ? MakeRef : ModelRef}
             onChange={(option) => {
